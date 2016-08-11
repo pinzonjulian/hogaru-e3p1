@@ -8,4 +8,7 @@ class Activity < ApplicationRecord
   validates :cal_intake, presence: true,
                          numericality: { greater_than_or_equal_to: 0,
                                          less_than_or_equal_to: 5000 }
+
+  # TODO: before_save ===> Add 1 to activity_count
+
 end
