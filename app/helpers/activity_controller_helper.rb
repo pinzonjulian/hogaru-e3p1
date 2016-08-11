@@ -1,0 +1,2 @@
+module ActivityControllerHelper
+end
