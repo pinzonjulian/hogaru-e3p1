@@ -2,7 +2,7 @@
 <p>Find me in app/views/activities/edit.html.erb</p>
 
 <%= form_for @activity do |f| %>
-  <%# render "shared/errors", object: @activities %>
+  <%= render "shared/error_messages", object: @activity %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 

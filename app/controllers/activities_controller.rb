@@ -9,7 +9,7 @@ class ActivitiesController < ApplicationController
       flash[:success] = "Activity registered!"
       redirect_to @activity
     else
-      render
+      render 'new'
     end
   end
 
