@@ -34,8 +34,10 @@
       <%= activity.cal_intake %>
     </div>
     <div class="columns small-12 medium-2">
-      <a class="button small " href="#">Edit</a>
-      <a class="button small alert" href="#">Delete</a>
+      <%= link_to "Edit", edit_activity_path(activity), class:"button small" %>
+      <%= link_to "Delete", activity, method: :delete,
+                                      data: { confirm: "You sure?" },
+                                      class:"button small alert" %>
     </div>
   </div>
 <% end %>
