@@ -11,6 +11,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
+    redirect_to root_url and return unless current_user.activities.exists?(params[:id])
     @activity = Activity.new(activity_params)
     @activity.user_id = current_user[:id]
     if @activity.save
@@ -23,7 +24,8 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-    @activity = Activity.find(params[:id])
+    redirect_to root_url and return unless current_user.activities.exists?(params[:id])
+    @activity = current_user.activities.find(params[:id])
     if @activity.update_attributes(activity_params)
       flash[:success] = "Activity updated!"
       redirect_to activities_path
@@ -33,17 +35,19 @@ class ActivitiesController < ApplicationController
   end
 
   def edit
-    @activity = Activity.find(params[:id])
+    redirect_to root_url and return unless current_user.activities.exists?(params[:id])
+    @activity = current_user.activities.find(params[:id])
   end
 
   def destroy
-    @activity = Activity.find(params[:id]).destroy
+    redirect_to root_url and return unless current_user.activities.exists?(params[:id])
+    @activity = current_user.activities.find(params[:id]).destroy
     flash[:success] = "Activity deleted"
     redirect_to activities_path
   end
 
   def index
-    @activities = Activity.page(params[:page])
+    @activities = current_user.activities.page(params[:page])
   end
 
   def show
@@ -52,8 +56,7 @@ class ActivitiesController < ApplicationController
   private
 
     def activity_params
-      params.require(:activity).permit(:name, :cal_intake,
-                                       :cal_burnt, :date, :user_id )
+      params.require(:activity).permit(:name, :calories, :burnt, :date, :user_id )
     end
 
 end

@@ -10,10 +10,10 @@ function graphMe() {
     // The name of the data record attribute that contains x-values.
     xkey: 'date',
     // A list of names of data record attributes that contain y-values.
-    ykeys: ['daily_calories'],
+    ykeys: ['calorie_burn', 'calorie_intake'],
     // Labels for the ykeys -- will be displayed when you hover over the
     // chart.
-    labels: ['Calories']
+    labels: ['Calorie burn', 'Calorie intake']
   });
 
 }

@@ -1,7 +1,7 @@
 <h1>My Activities</h1>
 
 <!-- <div id="activities_chart" style="height: 250px;"></div> -->
-<%# content_tag :div, "", id: "activities_chart", data: {activities: activities_chart_data} %>
+<%= content_tag :div, "", id: "activities_chart", data: {activities: activities_chart_data} %>
 
 <div class="row">
   <div class="columns small-12 medium-3">
@@ -23,4 +23,4 @@
 
 <%= render @activities %>
 
-<%= paginate @activities %>
+<% paginate @activities %>
