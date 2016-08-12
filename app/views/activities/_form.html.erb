@@ -1,16 +1,20 @@
 <%= form_for @activity do |f| %>
   <%= render "shared/error_messages", object: @activity %>
+
   <%= f.label :name %>
   <%= f.text_field :name %>
 
-  <%= f.label :cal_burnt %>
-  <%= f.number_field :cal_burnt %>
+  <%= f.label :calories %>
+  <%= f.number_field :calories %>
 
-  <%= f.label :cal_intake %>
-  <%= f.number_field :cal_intake %>
+  <div>
+    <%= f.label :burnt %>
+    <%= f.check_box :burnt %>
+  </div>
+
 
   <%= f.label :date %>
-  <%= f.datetime_local_field :date %>
+  <%= f.date_field :date %>
 
   <%= f.submit yield(:button_text), class:"button" %>
 
