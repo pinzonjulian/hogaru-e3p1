@@ -1,11 +1,20 @@
 class ActivitiesController < ApplicationController
+
+  before_action :authenticate_user!
+
+  def setup
+    @user = current_user
+  end
+
   def new
     @activity = Activity.new
   end
 
   def create
     @activity = Activity.new(activity_params)
+    @activity.user_id = current_user[:id]
     if @activity.save
+      user = current_user
       flash[:success] = "Activity registered!"
       redirect_to @activity
     else
@@ -40,7 +49,7 @@ class ActivitiesController < ApplicationController
 
     def activity_params
       params.require(:activity).permit(:name, :cal_intake,
-                                       :cal_burnt, :date )
+                                       :cal_burnt, :date, :user_id )
     end
 
 end

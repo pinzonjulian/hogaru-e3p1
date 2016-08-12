@@ -6,14 +6,19 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
+    <%= render 'layouts/rails_default' %>
   </head>
 
   <body>
+    <%= render 'layouts/menu' %>
+    <%= render 'layouts/flash' %>
 
-    <%= yield %>
+    <div class="row">
+      <div class="columns small-12">
+        <%= yield %>
+      </div>
+    </div>
+
 
   </body>
 </html>
