@@ -40,6 +40,7 @@ class ActivitiesController < ApplicationController
   end
 
   def index
+    @activities = Activity.page(params[:page])
   end
 
   def show

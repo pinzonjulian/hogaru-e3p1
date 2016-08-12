@@ -6,6 +6,8 @@ gem 'devise', '~> 4.2'
 gem 'foundation-rails', '~> 6.2', '>= 6.2.3.0'
 # Kaminari for pagination
 gem 'kaminari', '~> 0.17.0'
+# Faker for faking stuff
+gem 'faker',                   '1.6.3'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

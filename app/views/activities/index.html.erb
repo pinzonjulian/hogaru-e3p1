@@ -1,2 +1,43 @@
 <h1>Activities#index</h1>
 <p>Find me in app/views/activities/index.html.erb</p>
+
+<div class="row">
+  <div class="columns small-12 medium-3">
+    <strong>Name</strong>
+  </div>
+  <div class="columns small-12 medium-3">
+    <strong>Date</strong>
+  </div>
+  <div class="columns small-12 medium-2">
+    <strong>Calories burnt</strong>
+  </div>
+  <div class="columns small-12 medium-2">
+    <strong>Calories eaten</strong>
+  </div>
+  <div class="columns small-12 medium-2">
+    <strong>Action</strong>
+  </div>
+</div>
+
+<% @activities.each do |activity| %>
+  <div class="row">
+    <div class="columns small-12 medium-3">
+      <%= activity.name %>
+    </div>
+    <div class="columns small-12 medium-3">
+      <%= activity.date %>
+    </div>
+    <div class="columns small-12 medium-2">
+      <%= activity.cal_burnt %>
+    </div>
+    <div class="columns small-12 medium-2">
+      <%= activity.cal_intake %>
+    </div>
+    <div class="columns small-12 medium-2">
+      <a class="button small " href="#">Edit</a>
+      <a class="button small alert" href="#">Delete</a>
+    </div>
+  </div>
+<% end %>
+
+<%= paginate @activities %>
