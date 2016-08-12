@@ -53,6 +53,10 @@ class ActivitiesController < ApplicationController
   def show
   end
 
+  def stats
+    #code
+  end
+
   private
 
     def activity_params
