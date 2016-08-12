@@ -5,6 +5,7 @@
       <% if user_signed_in? %>
         <li><%= link_to "Dashboard", activities_path  %></li>
         <li><%= link_to "Add activity", new_activity_path  %></li>
+        <li><%= link_to "My stats", stats_activities_path  %></li>
       <% end %>
     </ul>
   </div>

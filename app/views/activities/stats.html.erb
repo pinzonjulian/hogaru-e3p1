@@ -2,4 +2,10 @@
 <p>
   Your stats for the last 30 days
 </p>
-<%= content_tag :div, "", id: "activities_chart", data: {activities: activities_chart_data} %>
+<%= content_tag :div, "", id: "activities_chart", data: {activities: activities_chart_data(@user)} %>
+
+<div class="row">
+  <div class="columns small-12">
+    <%= link_to "Share", share_stats_activities_path, class:"button"  %>
+  </div>
+</div>

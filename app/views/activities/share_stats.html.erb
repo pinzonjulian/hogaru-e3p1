@@ -1,0 +1,7 @@
+<h1>Share your stats</h1>
+
+<%= form_tag send_token_activities_path, method: :post do %>
+  <%= label_tag "Email" %>
+  <%= email_field_tag "email" %>
+  <%= submit_tag "Send email", class:"button"%>
+<% end %>

@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:stats]
 
   def setup
     @user = current_user
@@ -54,7 +54,17 @@ class ActivitiesController < ApplicationController
   end
 
   def stats
-    #code
+    @user = current_user || User.find_by(view_token: params[:token])
+  end
+
+  def share_stats
+    # @user = current_user
+  end
+
+  def send_token
+    UserMailer.view_stats(params[:email], current_user).deliver_now
+    flash[:info] = "Stats shared!"
+    redirect_to root_url
   end
 
   private
