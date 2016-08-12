@@ -16,7 +16,7 @@ class ActivitiesController < ApplicationController
     if @activity.save
       user = current_user
       flash[:success] = "Activity registered!"
-      redirect_to @activity
+      redirect_to activities_path
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     if @activity.update_attributes(activity_params)
       flash[:success] = "Activity updated!"
-      redirect_to @activity
+      redirect_to activities_path
     else
       render 'edit'
     end

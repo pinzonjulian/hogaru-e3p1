@@ -1,22 +1,4 @@
-<h1>Activities#new</h1>
-<p>Find me in app/views/activities/new.html.erb</p>
+<% provide(:button_text, 'Create') %>
+<h1>Create new activity</h1>
 
-<!-- TODO: needs refactoring -->
-
-<%= form_for @activity do |f| %>
-  <%= render "shared/error_messages", object: @activity %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :cal_burnt %>
-  <%= f.number_field :cal_burnt %>
-
-  <%= f.label :cal_intake %>
-  <%= f.number_field :cal_intake %>
-
-  <%= f.label :date %>
-  <%= f.datetime_local_field :date %>
-
-  <%= f.submit "Add Activity", class:"button" %>
-
-<% end %>
+<%= render 'form' %>
