@@ -47,7 +47,7 @@ class ActivitiesController < ApplicationController
   end
 
   def index
-    @activities = current_user.activities.page(params[:page])
+    @activities = current_user.activities.order(date: :desc).page(params[:page])
   end
 
   def show
@@ -63,6 +63,7 @@ class ActivitiesController < ApplicationController
 
   def send_token
     UserMailer.view_stats(params[:email], current_user).deliver_now
+    # raise
     flash[:info] = "Stats shared!"
     redirect_to root_url
   end
