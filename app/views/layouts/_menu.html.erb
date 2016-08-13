@@ -3,7 +3,6 @@
     <ul class="menu">
       <li class="menu-text"><%= link_to "Calorista!", root_path %></li>
       <% if user_signed_in? %>
-        <li><%= link_to "Dashboard", activities_path  %></li>
         <li><%= link_to "Add activity", new_activity_path  %></li>
         <li><%= link_to "My stats", stats_activities_path  %></li>
       <% end %>
